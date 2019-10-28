@@ -1,16 +1,19 @@
 function isPalindrome(word){
   var word = word.split("");
   var i=0;
-  while(i < word.length){
-    for(var j=word.length-1; j>=0; j--){
+  var palindrome = true;
+  console.log(word);
+  while(i < word.length && palindrome===true){
+    for(var j=word.length-1; j>=0 && palindrome===true; j--){
       if(word[i]==word[j]){
-        return true;
+        palindrome = true;
       } else {
-        return false;
+        palindrome = false;
       }
       i++;
     }
   }
+  return palindrome;
 }
 
 document.getElementById("check").onclick = function(){
@@ -32,21 +35,25 @@ document.getElementById("check").onclick = function(){
 
 
 // document.getElementById("check").onclick = function(){
-  
+
 //   var test = /^[a-z]+$/i;
-//   var name = document.getElementById("name").value;
+//   var name = document.getElementById("word").value;
 //   var result = document.getElementById("result");
 
 //   if(test.test(name)){
 //     var word;
-//     var palindrome = false;
+//     var palindrome = true;
 //     word = name.split("");
 //     var i=0;
-//     while(i < word.length){
-//       for(var j=word.length-1; j>=0; j--){
+//     while(i < word.length && palindrome===true ){
+//       for(var j=word.length-1; j>=0 && palindrome===true; j--){
+//         console.log(word[i] + " i" + i);
+//         console.log(word[j] + " j" + j);
 //         if(word[i]==word[j]){
+//           console.log("if");
 //           palindrome=true;
 //         } else {
+//           console.log("else");
 //           palindrome=false;
 //         }
 //         i++;
@@ -60,6 +67,6 @@ document.getElementById("check").onclick = function(){
 //     }
 //   } else {
 //     result.innerHTML = "Incorrect values, try again!";
-//     document.getElementById("name").value = null;
+//     document.getElementById("word").value = null;
 //   }  
 // }
